@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LifeCycle implements Runnable {
-    private Island island;
+    private final Island island;
     public static AtomicInteger cycles = new AtomicInteger(0) ;
 
     public LifeCycle(Island island) {
@@ -83,9 +83,9 @@ public class LifeCycle implements Runnable {
     private void countPlant() {
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(() -> {
-            island.numberOfPlants.set(0);
+            Island.numberOfPlants.set(0);
             for (Cell cell : island.getCells()) {
-                island.numberOfPlants.getAndAdd(cell.getPlant().get());
+                Island.numberOfPlants.getAndAdd(cell.getPlant().get());
             }
         });
     }

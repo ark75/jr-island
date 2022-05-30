@@ -1,19 +1,19 @@
 package com.company.config;
 
 public enum Types {
-    Wolf,
-    Boa,
-    Fox,
-    Bear,
-    Eagle,
-    Horse,
-    Deer,
-    Rabbit,
-    Mouse,
-    Goat,
-    Sheep,
-    Boar,
-    Buffalo,
-    Duck,
-    Caterpillar
+    WOLF,
+    BOA,
+    FOX,
+    BEAR,
+    EAGLE,
+    HORSE,
+    DEER,
+    RABBIT,
+    MOUSE,
+    GOAT,
+    SHEEP,
+    BOAR,
+    BUFFALO,
+    DUCK,
+    CATERPILLAR
 }

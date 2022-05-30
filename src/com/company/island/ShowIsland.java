@@ -1,12 +1,9 @@
 package com.company.island;
 
-import com.company.animal.Animal;
+
 import com.company.config.Config;
 import com.company.animal.predator.*;
 import com.company.animal.herbivore.*;
-import jdk.swing.interop.SwingInterOpUtils;
-
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class ShowIsland {
@@ -34,13 +31,13 @@ public class ShowIsland {
                 Config.SHEEP, Sheep.number.get(),
                 Config.PLANT,  Island.numberOfPlants.get());
 
-// Отображение мира какое-то не очень, нужно продумать алгоритм, сейчас изображение дергается
-//        String world = island.getCells().stream()
-//                .flatMap(cell -> cell.getAnimals().stream()
-//                        .map(animal -> animal.icon)
-//                        .distinct())
-//                .collect(Collectors.joining(""));
-//        System.out.println(world);
+
+        String world = island.getCells().stream()
+                .flatMap(cell -> cell.getAnimals().stream()
+                        .map(animal -> animal.icon)
+                        .distinct())
+                .collect(Collectors.joining(""));
+        System.out.println(world);
     }
 }
 

@@ -17,32 +17,25 @@ public abstract class Animal {
     public AtomicInteger completeFoodWeight = new AtomicInteger();
     public Cell position;
 
-    private AtomicReference<Double> satiety = new AtomicReference<>();
+    private final AtomicReference<Double> satiety = new AtomicReference<>();
 
     public double numberOfCubs;
     public String icon;
     public double weight;
-
-    private AtomicBoolean isMoved;
-
+    private AtomicBoolean isMoved= new AtomicBoolean(false);
     public AtomicBoolean isMoved() {
         return isMoved;
     }
-
     public void setMoved(boolean moved) {
         isMoved.set(moved);
     }
-
     public abstract void eat();
-
     public abstract AtomicInteger getNumber();
-
 
     public void die() throws NoSuchFieldException, IllegalAccessException {
         getNumber().decrementAndGet();
         position.getAnimals().removeIf(s -> s == this);
     }
-
 
     public void move() {
         int tempX = this.position.getX().get();

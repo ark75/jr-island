@@ -7,7 +7,6 @@ import com.company.island.ShowIsland;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class Game {
@@ -21,7 +20,7 @@ public class Game {
 
         LifeCycle task3 = new LifeCycle(island);
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        ScheduledFuture<?> lifeCycle = executor.scheduleAtFixedRate(task3, 0, Config.taktInMillies, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(task3, 0, Config.taktInMillies, TimeUnit.MILLISECONDS);
 
         while(true) {
             try {

@@ -8,16 +8,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cell {
-    private Island island;
+    private final Island island;
 
     public Island getIsland() {
         return island;
     }
 
-    private AtomicInteger x = new AtomicInteger();
-    private AtomicInteger y = new AtomicInteger();
+    private final AtomicInteger x = new AtomicInteger();
+    private final AtomicInteger y = new AtomicInteger();
     private CopyOnWriteArrayList<Animal> animals;
-    private AtomicInteger plant =   new AtomicInteger();
+    private  AtomicInteger plant =   new AtomicInteger();
 
     public Cell(Island island, int x, int y, int plant) {
         this.island = island;
@@ -30,18 +30,8 @@ public class Cell {
         return x;
     }
 
-    public void setX(int x) {
-        this.x.set(Math.min((x<0)?0:x, Config.SIZE_X));
-    }
-
     public AtomicInteger getY() {
         return y;
-    }
-
-    public void setY(int y) {
-
-        this.y.set(Math.min((y<0)?0:y, Config.SIZE_Y));
-
     }
 
     public CopyOnWriteArrayList<Animal> getAnimals() {

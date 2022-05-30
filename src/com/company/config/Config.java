@@ -1,6 +1,5 @@
 package com.company.config;
 
-import com.company.animal.predator.Bear;
 import com.company.island.LifeCycle;
 
 public class Config {
